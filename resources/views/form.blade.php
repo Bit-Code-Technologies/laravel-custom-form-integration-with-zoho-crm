@@ -99,48 +99,48 @@
         @-webkit-keyframes fadein {
             from {
                 bottom: 0;
-                opacity: 0;
+                opaCity: 0;
             }
 
             to {
                 bottom: 30px;
-                opacity: 1;
+                opaCity: 1;
             }
         }
 
         @keyframes fadein {
             from {
                 bottom: 0;
-                opacity: 0;
+                opaCity: 0;
             }
 
             to {
                 bottom: 30px;
-                opacity: 1;
+                opaCity: 1;
             }
         }
 
         @-webkit-keyframes fadeout {
             from {
                 bottom: 30px;
-                opacity: 1;
+                opaCity: 1;
             }
 
             to {
                 bottom: 0;
-                opacity: 0;
+                opaCity: 0;
             }
         }
 
         @keyframes fadeout {
             from {
                 bottom: 30px;
-                opacity: 1;
+                opaCity: 1;
             }
 
             to {
                 bottom: 0;
-                opacity: 0;
+                opaCity: 0;
             }
         }
 
@@ -168,35 +168,35 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
                 <form action={{ route('send.data.tocrm') }} name="WebToLeads2250905000027780001" method="POST"
-                    {{-- onsubmit="javascript:document.charset=&quot;UTF-8&quot;; return checkMandatory2250905000027780001()" --}} accept-charset="UTF-8">
+                    accept-charset="UTF-8">
                     @csrf
                     <div class="row mb-3 g-3">
                         <div class="col-sm-12">
-                            <label class="form-label" for="practice_name">Practice Name</label>
-                            <input class="form-control" type="text" id="practice_name" name="practice_name"
-                                maxlength="100">
-                            @if ($errors->has('practice_name'))
-                                <span class="text-danger">{{ $errors->first('practice_name') }}</span>
+                            <label class="form-label" for="Practice_Name">Practice Name</label>
+                            <input class="form-control" type="text" id="Practice_Name" name="Practice_Name"
+                                maxlength="100" value="{{ old('Practice_Name') }}">
+                            @if ($errors->has('Practice_Name'))
+                                <span class="text-danger">{{ $errors->first('Practice_Name') }}</span>
                             @endif
                         </div>
                     </div>
 
                     <div class="row mb-3 g-3">
                         <div class="col-md-6 col-sm-12">
-                            <label class="form-label" for="tax_id_number">Tax ID Number</label>
-                            <input class="form-control" type="tel" id="tax_id_number" name="tax_id_number"
-                                maxlength="100">
-                            @if ($errors->has('tax_id_number'))
-                                <span class="text-danger">{{ $errors->first('tax_id_number') }}</span>
+                            <label class="form-label" for="Tax_ID_Number">Tax ID Number</label>
+                            <input class="form-control" type="tel" id="Tax_ID_Number" name="Tax_ID_Number"
+                                maxlength="100" value="{{ old('Tax_ID_Number') }}">
+                            @if ($errors->has('Tax_ID_Number'))
+                                <span class="text-danger">{{ $errors->first('Tax_ID_Number') }}</span>
                             @endif
                         </div>
 
                         <div class="col-md-6 col-sm-12">
-                            <label class="form-label" for="npi_number">NPI Number</label>
-                            <input class="form-control" id="npi_number" name="npi_number" maxlength="100"
-                                type="tel">
-                            @if ($errors->has('npi_number'))
-                                <span class="text-danger">{{ $errors->first('npi_number') }}</span>
+                            <label class="form-label" for="NPI_Number">NPI Number</label>
+                            <input class="form-control" id="NPI_Number" name="NPI_Number" maxlength="100" type="tel"
+                                value="{{ old('NPI_Number') }}">
+                            @if ($errors->has('NPI_Number'))
+                                <span class="text-danger">{{ $errors->first('NPI_Number') }}</span>
                             @endif
                         </div>
 
@@ -205,115 +205,119 @@
 
                     <div class="row mb-3 g-3">
                         <div class="col-sm-4">
-                            <label class="form-label" for="first_name">First Name</label>
-                            <input class="form-control" id="first_name" maxlength="40" name="first_name" type="text">
-                            @if ($errors->has('first_name'))
-                                <span class="text-danger">{{ $errors->first('first_name') }}</span>
+                            <label class="form-label" for="First_Name">First Name</label>
+                            <input class="form-control" id="First_Name" maxlength="40" name="First_Name" type="text"
+                                value="{{ old('First_Name') }}">
+                            @if ($errors->has('First_Name'))
+                                <span class="text-danger">{{ $errors->first('First_Name') }}</span>
                             @endif
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label" for="last_name">Last Name</label>
-                            <input class="form-control" id="last_name" maxlength="40" name="last_name" type="text">
-                            @if ($errors->has('last_name'))
-                                <span class="text-danger">{{ $errors->first('last_name') }}</span>
+                            <label class="form-label" for="Last_Name">Last Name</label>
+                            <input class="form-control" id="Last_Name" maxlength="40" name="Last_Name" type="text"
+                                value="{{ old('Last_Name') }}">
+                            @if ($errors->has('Last_Name'))
+                                <span class="text-danger">{{ $errors->first('Last_Name') }}</span>
                             @endif
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label" for="'job_title">Job Title</label>
-                            <input class="form-control" id="job_title" maxlength="50" name="job_title" type="text">
-                            @if ($errors->has('job_title'))
-                                <span class="text-danger">{{ $errors->first('job_title') }}</span>
+                            <label class="form-label" for="'Job_Title">Job Title</label>
+                            <input class="form-control" id="Job_Title" maxlength="50" name="Job_Title" type="text"
+                                value="{{ old('Job_Title') }}">
+                            @if ($errors->has('Job_Title'))
+                                <span class="text-danger">{{ $errors->first('Job_Title') }}</span>
                             @endif
                         </div>
                     </div>
 
                     <div class="row mb-3 g-3">
                         <div class="col-sm-4">
-                            <label class="form-label" for="phone">Office Phone</label>
-                            <input class="form-control" id="phone" maxlength="100" name="phone" type="tel">
-                            @if ($errors->has('phone'))
-                                <span class="text-danger">{{ $errors->first('phone') }}</span>
+                            <label class="form-label" for="Phone">Office Phone</label>
+                            <input class="form-control" id="Phone" maxlength="100" name="Phone"
+                                type="tel" value="{{ old('Phone') }}">
+                            @if ($errors->has('Phone'))
+                                <span class="text-danger">{{ $errors->first('Phone') }}</span>
                             @endif
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label" for="mobile">Mobile</label>
-                            <input class="form-control" id="mobile" maxlength="100" name="mobile"
-                                type="tel">
-                            @if ($errors->has('mobile'))
-                                <span class="text-danger">{{ $errors->first('mobile') }}</span>
+                            <label class="form-label" for="Mobile">Mobile</label>
+                            <input class="form-control" id="Mobile" maxlength="100" name="Mobile"
+                                type="tel" value="{{ old('Mobile') }}">
+                            @if ($errors->has('Mobile'))
+                                <span class="text-danger">{{ $errors->first('Mobile') }}</span>
                             @endif
                         </div>
                         <div class="col-sm-4">
-                            <label class="form-label" for="fax">Fax</label>
-                            <input class="form-control" id="fax" maxlength="100" name="fax"
-                                type="tel">
-                            @if ($errors->has('fax'))
-                                <span class="text-danger">{{ $errors->first('fax') }}</span>
-                            @endif
-                        </div>
-                    </div>
-
-                    <div class="row mb-3 g-3">
-                        <div class="col-sm-6">
-                            <label class="form-label" for="email">Email</label>
-                            <input class="form-control" ftype="email" id="email" maxlength="100"
-                                name="email" type="email">
-                            @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                            @endif
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="form-label" for="street_address">Street Address</label>
-                            <input class="form-control" id="street_address" maxlength="100" name="street_address"
-                                type="text">
-                            @if ($errors->has('street_address'))
-                                <span class="text-danger">{{ $errors->first('street_address') }}</span>
-                            @endif
-                        </div>
-                    </div>
-
-                    <div class="row mb-3 g-3">
-                        <div class="col-sm-4">
-                            <label class="form-label" for="city">City</label>
-                            <input class="form-control" id="city" maxlength="100" name="city"
-                                type="text">
-                            @if ($errors->has('city'))
-                                <span class="text-danger">{{ $errors->first('city') }}</span>
-                            @endif
-                        </div>
-                        <div class="col-sm-4">
-                            <label class="form-label" for="state">State</label>
-                            <input class="form-control" id="state" maxlength="100" name="state"
-                                type="text">
-                            @if ($errors->has('state'))
-                                <span class="text-danger">{{ $errors->first('state') }}</span>
-                            @endif
-                        </div>
-                        <div class="col-sm-4">
-                            <label class="form-label" for="zip_code">Zip Code</label>
-                            <input class="form-control" id="zip_code" maxlength="100" name="zip_code"
-                                type="tel">
-                            @if ($errors->has('zip_code'))
-                                <span class="text-danger">{{ $errors->first('zip_code') }}</span>
+                            <label class="form-label" for="Fax">Fax</label>
+                            <input class="form-control" id="Fax" maxlength="100" name="Fax"
+                                type="tel" value="{{ old('Fax') }}">
+                            @if ($errors->has('Fax'))
+                                <span class="text-danger">{{ $errors->first('Fax') }}</span>
                             @endif
                         </div>
                     </div>
 
                     <div class="row mb-3 g-3">
                         <div class="col-sm-6">
-                            <label class="form-label" for="county">County / Counties</label>
-                            <input class="form-control" id="county" maxlength="200" name="county"
-                                type="text">
-                            @if ($errors->has('county'))
-                                <span class="text-danger">{{ $errors->first('county') }}</span>
+                            <label class="form-label" for="Email">Email</label>
+                            <input class="form-control" ftype="Email" id="Email" maxlength="100"
+                                name="Email" type="Email" value="{{ old('Email') }}">
+                            @if ($errors->has('Email'))
+                                <span class="text-danger">{{ $errors->first('Email') }}</span>
                             @endif
                         </div>
                         <div class="col-sm-6">
-                            <label class="form-label" for="number_of_locations">Number of Locations</label>
-                            <input class="form-control" id="number_of_locations" maxlength="100"
-                                name="number_of_locations" type="tel">
-                            @if ($errors->has('number_of_locations'))
-                                <span class="text-danger">{{ $errors->first('number_of_locations') }}</span>
+                            <label class="form-label" for="Street">Street Address</label>
+                            <input class="form-control" id="Street" maxlength="100" name="Street"
+                                type="text" value="{{ old('Street') }}">
+                            @if ($errors->has('Street'))
+                                <span class="text-danger">{{ $errors->first('Street') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 g-3">
+                        <div class="col-sm-4">
+                            <label class="form-label" for="City">City</label>
+                            <input class="form-control" id="City" maxlength="100" name="City"
+                                type="text" value="{{ old('City') }}">
+                            @if ($errors->has('City'))
+                                <span class="text-danger">{{ $errors->first('City') }}</span>
+                            @endif
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="form-label" for="State">State</label>
+                            <input class="form-control" id="State" maxlength="100" name="State"
+                                type="text" value="{{ old('State') }}">
+                            @if ($errors->has('State'))
+                                <span class="text-danger">{{ $errors->first('State') }}</span>
+                            @endif
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="form-label" for="Zip_Code">Zip Code</label>
+                            <input class="form-control" id="Zip_Code" maxlength="100" name="Zip_Code"
+                                type="tel" value="{{ old(' ') }}">
+                            @if ($errors->has('Zip_Code'))
+                                <span class="text-danger">{{ $errors->first('Zip_Code') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 g-3">
+                        <div class="col-sm-6">
+                            <label class="form-label" for="County">County / Counties</label>
+                            <input class="form-control" id="County" maxlength="200" name="County"
+                                type="text" value="{{ old('County') }}">
+                            @if ($errors->has('County'))
+                                <span class="text-danger">{{ $errors->first('County') }}</span>
+                            @endif
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="Number_of_Locations">Number of Locations</label>
+                            <input class="form-control" id="Number_of_Locations" maxlength="100"
+                                name="Number_of_Locations" type="text" value="{{ old('Number_of_Locations') }}">
+                            @if ($errors->has('Number_of_Locations'))
+                                <span class="text-danger">{{ $errors->first('Number_of_Locations') }}</span>
                             @endif
                         </div>
                     </div>
@@ -322,29 +326,33 @@
                         <div class="col-sm-6">
                             <p class="mb-1 mt-2">Specialty <span class="text-muted">(select all that apply)</span></p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="ot" value="ot"
-                                    maxlength="3" name="specialty[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="ot" value="OT"
+                                    maxlength="3" name="Specialty[]" type="checkbox"
+                                    {{ in_array('OT', old('Specialty', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="ot">OT</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="pt" value="pt"
-                                    maxlength="3" name="specialty[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="pt" value="PT"
+                                    maxlength="3" name="Specialty[]" type="checkbox"
+                                    {{ in_array('PT', old('Specialty', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="pt">PT</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="st" value="st"
-                                    maxlength="3" name="specialty[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="st" value="ST"
+                                    maxlength="3" name="Specialty[]" type="checkbox"
+                                    {{ in_array('ST', old('Specialty', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="st">ST</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="chiro" value="chiro"
-                                    maxlength="3" name="specialty[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="chiro" value="Chiro"
+                                    maxlength="3" name="Specialty[]" type="checkbox"
+                                    {{ in_array('Chiro', old('Specialty', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="chiro">Chiro</label>
                             </div>
                             <br>
-                            @if ($errors->has('specialty'))
-                                <span class="text-danger">{{ $errors->first('specialty') }}</span>
+                            @if ($errors->has('Specialty'))
+                                <span class="text-danger">{{ $errors->first('Specialty') }}</span>
                             @endif
                         </div>
                     </div>
@@ -353,71 +361,86 @@
                             <p class="mb-1 mt-4">Line of Business <span class="text-muted">(select all that
                                     apply)</span></p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="medicaid" value="medicaid"
-                                    maxlength="3" name="line_of_business[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="medicaid" value="Medicaid"
+                                    {{ in_array('Medicaid', old('Line_of_Business', [])) ? 'checked' : '' }}
+                                    maxlength="3" name="Line_of_Business[]" type="checkbox">
                                 <label class="form-check-label" for="medicaid">Medicaid</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="medicare" value="medicare"
-                                    maxlength="3" name="line_of_business[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="medicare" value="Medicare"
+                                    {{ in_array('Medicare', old('Line_of_Business', [])) ? 'checked' : '' }}
+                                    maxlength="3" name="Line_of_Business[]" type="checkbox">
                                 <label class="form-check-label" for="medicare">Medicare</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="commercial" value="commercial"
-                                    maxlength="3" name="line_of_business[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="commercial" value="Commercial"
+                                    {{ in_array('Commercial', old('Line_of_Business', [])) ? 'checked' : '' }}
+                                    maxlength="3" name="Line_of_Business[]" type="checkbox">
                                 <label class="form-check-label" for="commercial">Commercial</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="marketplace" value="marketplace"
-                                    maxlength="3" name="line_of_business[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="marketplace" value="Marketplace"
+                                    {{ in_array('Marketplace', old('Line_of_Business', [])) ? 'checked' : '' }}
+                                    maxlength="3" name="Line_of_Business[]" type="checkbox">
                                 <label class="form-check-label" for="marketplace">Marketplace</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="workers_comp" value="workers_comp"
-                                    maxlength="3" name="line_of_business[]" type="checkbox">
+                                <input class="form-check-input zcwf_ckbox" id="workers_comp" value="Worker's Comp"
+                                    {{ in_array("Worker's Comp", old('Line_of_Business', [])) ? 'checked' : '' }}
+                                    maxlength="3" name="Line_of_Business[]" type="checkbox">
                                 <label class="form-check-label" for="workers_comp">Worker's Comp</label>
                             </div>
                         </div>
-                        @if ($errors->has('line_of_business'))
-                            <span class="text-danger">{{ $errors->first('line_of_business') }}</span>
+                        @if ($errors->has('Line_of_Business'))
+                            <span class="text-danger">{{ $errors->first('Line_of_Business') }}</span>
                         @endif
                     </div>
                     <div class="row gx-4 pb-2 mt-4">
                         <div class="col-sm-12">
-                            <label class="form-label" for="group_seen">Age Group Seen</label><br>
-                            <select class="selectpicker" multiple title="Choose one of the following..." multiple
-                                data-live-search="true" name="group_seen[]">
-                                <option value="Pediatric">Pediatric</option>
-                                <option value="Adult">Adult</option>
+                            <label class="form-label" for="Age_Group_Seen">Age Group Seen</label><br>
+                            <select class="selectpicker" multiple title="Choose one of the following..."
+                                data-live-search="true" name="Age_Group_Seen[]">
+                                <option value="Pediatric"
+                                    {{ in_array('Pediatric', old('Age_Group_Seen', [])) ? 'selected' : '' }}>Pediatric
+                                </option>
+                                <option value="Adult"
+                                    {{ in_array('Adult', old('Age_Group_Seen', [])) ? 'selected' : '' }}>
+                                    Adult</option>
                             </select>
-
                         </div>
-                        @if ($errors->has('group_seen'))
-                            <span class="text-danger">{{ $errors->first('group_seen') }}</span>
+                        @if ($errors->has('Age_Group_Seen'))
+                            <span class="text-danger">{{ $errors->first('Age_Group_Seen') }}</span>
                         @endif
                     </div>
                     <div class="row gx-4 pb-2 mt-3">
                         <div class="col-sm-6">
-                            <label class="form-label" for="lead_source">How did you hear about us?</label>
-                            <select aria-label="How did you hear about us?" class="form-select" id="lead_source"
-                                name="lead_source">
+                            <label class="form-label" for="Lead_Source">How did you hear about us?</label>
+                            <select aria-label="How did you hear about us?" class="form-select" id="Lead_Source"
+                                name="Lead_Source">
                                 <option value="">Choose...</option>
-                                <option value="TN Website">Our Website</option>
-                                <option value="Marketing Campaign">Email</option>
-                                <option value="Fax Blast Outreach">Fax</option>
-                                <option value="Web Research">Web</option>
-                                <option value="Other">Other</option>
+                                <option value="TN Website"
+                                    @if (old('Lead_Source') == 'TN Website') {{ 'selected' }} @endif>Our Website</option>
+                                <option value="Marketing Campaign"
+                                    @if (old('Lead_Source') == 'Marketing Campaign') {{ 'selected' }} @endif>Email</option>
+                                <option value="Fax Blast Outreach"
+                                    @if (old('Lead_Source') == 'Fax Blast Outreach') {{ 'selected' }} @endif>Fax</option>
+                                <option value="Web Research"
+                                    @if (old('Lead_Source') == 'Web Research') {{ 'selected' }} @endif>Web</option>
+                                <option value="Other" @if (old('Lead_Source') == 'Other') {{ 'selected' }} @endif>
+                                    Other
+                                </option>
                             </select>
-                            @if ($errors->has('lead_source'))
-                                <span class="text-danger">{{ $errors->first('lead_source') }}</span>
+                            @if ($errors->has('Lead_Source'))
+                                <span class="text-danger">{{ $errors->first('Lead_Source') }}</span>
                             @endif
                         </div>
                         <div class="col-sm-6">
-                            <label class="form-label" for="website">Website </label>
-                            <input class="form-control" id="website" name="website" type="text"
-                                aria-required="true" pattern="https://.*" size="30">
-                            @if ($errors->has('website'))
-                                <span class="text-danger">{{ $errors->first('website') }}</span>
+                            <label class="form-label" for="Website">Website </label>
+                            <input class="form-control" id="Website" name="Website" type="text"
+                                aria-required="true" pattern="https://.*" size="30"
+                                value="{{ old('Website') }}">
+                            @if ($errors->has('Website'))
+                                <span class="text-danger">{{ $errors->first('Website') }}</span>
                             @endif
                         </div>
                     </div>
