@@ -82,8 +82,6 @@ class ZohoCRMController extends Controller
 
     public function store(CustomerStoreRequest $request)
     {
-        dd($request->validated());
-
         $tokenDetails = $this->GenerateToken();
         if (!isset($tokenDetails['access_token'])) {
             return response()->json(['code'=>403, 'msg'=> 'Failed to generate token']);
