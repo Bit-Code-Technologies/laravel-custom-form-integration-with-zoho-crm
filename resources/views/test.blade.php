@@ -315,7 +315,7 @@
                         <div class="col-sm-6">
                             <label class="form-label" for="Number_of_Locations">Number of Locations</label>
                             <input class="form-control" id="Number_of_Locations" maxlength="100"
-                                name="Number_of_Locations" type="number" value="{{ old('Number_of_Locations') }}">
+                                name="Number_of_Locations" type="text" value="{{ old('Number_of_Locations') }}">
                             @if ($errors->has('Number_of_Locations'))
                                 <span class="text-danger">{{ $errors->first('Number_of_Locations') }}</span>
                             @endif
@@ -385,8 +385,8 @@
                                 <label class="form-check-label" for="marketplace">Marketplace</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="workers_comp" value="Worker_s_Comp"
-                                    {{ in_array("Worker_s_Comp", old('Line_of_Business', [])) ? 'checked' : '' }}
+                                <input class="form-check-input zcwf_ckbox" id="workers_comp" value="Worker's Comp"
+                                    {{ in_array("Worker's Comp", old('Line_of_Business', [])) ? 'checked' : '' }}
                                     maxlength="3" name="Line_of_Business[]" type="checkbox">
                                 <label class="form-check-label" for="workers_comp">Worker's Comp</label>
                             </div>

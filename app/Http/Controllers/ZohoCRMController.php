@@ -44,27 +44,27 @@ class ZohoCRMController extends Controller
     // public function store(CustomerStoreRequest $request)
     // {
     //     $requestData = [
-    //         'practice_name'       => $request->practice_name,
-    //         'tax_id_number'       => $request->tax_id_number,
-    //         'npi_number'          => $request->npi_number,
-    //         'first_name'          => $request->first_name,
-    //         'last_name'           => $request->last_name,
-    //         'job_title'           => $request->job_title,
-    //         'phone'               => $request->phone,
-    //         'mobile'              => $request->mobile,
-    //         'fax'                 => $request->fax,
-    //         'email'               => $request->email,
-    //         'street_address'      => $request->street_address,
-    //         'city'                => $request->city,
-    //         'state'               => $request->state,
-    //         'zip_code'            => $request->zip_code,
-    //         'county'              => $request->county,
-    //         'number_of_locations' => $request->number_of_locations,
-    //         'specialty'           => implode(',', $request->specialty),
-    //         'line_of_business'    => implode(',', $request->line_of_business),
-    //         'group_seen'          => implode(',', $request->group_seen),
-    //         'lead_source'         => $request->lead_source,
-    //         'website'             => $request->website,
+    //         'Practice_Name'       => $request->Practice_Name,
+    //         'Tax_ID_Number'       => $request->Tax_ID_Number,
+    //         'NPI_Number'          => $request->NPI_Number,
+    //         'First_Name'          => $request->First_Name,
+    //         'Last_Name'           => $request->Last_Name,
+    //         'Job_Title'           => $request->Job_Title,
+    //         'Phone'               => $request->Phone,
+    //         'Mobile'              => $request->Mobile,
+    //         'Fax'                 => $request->Fax,
+    //         'Email'               => $request->Email,
+    //         'Street'      => $request->Street,
+    //         'City'                => $request->City,
+    //         'State'               => $request->State,
+    //         'Zip_Code'            => $request->Zip_Code,
+    //         'County'              => $request->County,
+    //         'Number_of_Locations' => $request->Number_of_Locations,
+    //         'Specialty'           => implode(',', $request->Specialty),
+    //         'Line_of_Business'    => implode(',', $request->Line_of_Business),
+    //         'Age_Group_Seen'          => implode(',', $request->Age_Group_Seen),
+    //         'Lead_Source'         => $request->Lead_Source,
+    //         'Website'             => $request->Website,
     //     ];
     //     $finalData = json_encode($requestData);
     //     $apiResponse = Http::post("https://www.zohoapis.com/crm/v2/functions/testshakhawat/actions/execute?auth_type=apikey&zapikey=1003.8f0fa8b58bd902778565545cc30d25c1.07d6c0c21473bc52b82103a9d2862406&test={$finalData}");
@@ -82,18 +82,57 @@ class ZohoCRMController extends Controller
 
     public function store(CustomerStoreRequest $request)
     {
+        $requestData = [
+            'Practice_Name'           => $request->Practice_Name,
+            'Tax_ID_Number'           => $request->Tax_ID_Number,
+            'NPI_Number'              => $request->NPI_Number,
+            'First_Name'              => $request->First_Name,
+            'Last_Name'               => $request->Last_Name,
+            'Job_Title'               => $request->Job_Title,
+            'Phone'                   => $request->Phone,
+            'Mobile'                  => $request->Mobile,
+            'Fax'                     => $request->Fax,
+            'Email'                   => $request->Email,
+            'Street'                  => $request->Street,
+            'City'                    => $request->City,
+            'State'                   => $request->State,
+            'Zip_Code'                => $request->Zip_Code,
+            'County'                  => $request->County,
+            'Number_of_Locations'     => $request->Number_of_Locations,
+            'Lead_Source'             => $request->Lead_Source,
+            'Website'                 => $request->Website,
+        ];
+
+        if (count($request->Specialty)) {
+            foreach ($request->Specialty as $item) {
+                $requestData[$item] = true;
+            }
+        }
+        if (count($request->Line_of_Business)) {
+            foreach ($request->Line_of_Business as $item) {
+                $requestData[$item] = true;
+            }
+        }
+        if (count($request->Age_Group_Seen)) {
+            foreach ($request->Age_Group_Seen as $item) {
+                $requestData[$item] = true;
+            }
+        }
+   
+
         $tokenDetails = $this->GenerateToken();
         if (!isset($tokenDetails['access_token'])) {
             return response()->json(['code'=>403, 'msg'=> 'Failed to generate token']);
         }
 
         $authorizationHeader['Authorization'] = 'Zoho-oauthtoken ' . $tokenDetails['access_token'];
-        $data['data'][] = $request->validated();
+        $data['data'][] = $requestData;
         $apiResponse = Http::withHeaders($authorizationHeader)->post(
             'https://www.zohoapis.com/crm/v3/Leads',
             (object) $data
         );
         $response = $apiResponse->json();
+        dd($response);
         if (!empty($response['data'])
         && !empty($response['data'][0]['code'])
         && $response['data'][0]['code'] === 'SUCCESS') {
