@@ -44,6 +44,11 @@
             padding-bottom: 200px;
         }
 
+        .frm-spcng img {
+            width: 150px;
+            height: 70px;
+        }
+
         .pb-4 {
             padding-bottom: 1.5rem !important;
         }
@@ -153,7 +158,7 @@
         <nav class="col-md-5 col-lg-5 d-md-block  sidebar collapse h-100 bg-cover" id="sidebarMenu"></nav>
 
         <main class="col-md-7 ms-sm-auto col-lg-7 px-md-5 frm-spcng">
-            <img alt="logo" class="pb-4" src="tn-hn1-blue.svg" width="300">
+            <img alt="logo" class="pb-4" src="bit-apps-logo.svg" width="300">
             <div class="row">
                 <div class="col-sm-9">
                     <h1 class="pb-3" style="letter-spacing: -0.06rem;">Join Our Network</h1>
@@ -184,8 +189,8 @@
                     <div class="row mb-3 g-3">
                         <div class="col-md-6 col-sm-12">
                             <label class="form-label" for="Tax_ID">Tax ID Number</label>
-                            <input class="form-control" type="tel" id="Tax_ID" name="Tax_ID"
-                                maxlength="100" value="{{ old('Tax_ID') }}">
+                            <input class="form-control" type="tel" id="Tax_ID" name="Tax_ID" maxlength="100"
+                                value="{{ old('Tax_ID') }}">
                             @if ($errors->has('Tax_ID'))
                                 <span class="text-danger">{{ $errors->first('Tax_ID') }}</span>
                             @endif
@@ -386,7 +391,7 @@
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input zcwf_ckbox" id="workers_comp" value="Worker_s_Comp"
-                                    {{ in_array("Worker_s_Comp", old('Line_of_Business', [])) ? 'checked' : '' }}
+                                    {{ in_array('Worker_s_Comp', old('Line_of_Business', [])) ? 'checked' : '' }}
                                     maxlength="3" name="Line_of_Business[]" type="checkbox">
                                 <label class="form-check-label" for="workers_comp">Worker's Comp</label>
                             </div>
