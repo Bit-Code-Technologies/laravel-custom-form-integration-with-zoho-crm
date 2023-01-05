@@ -27,9 +27,9 @@ class ZohoCRMController extends Controller
     {
         $requestParams = [
             'grant_type'    => 'refresh_token',
-            'client_id'     => '1000.NC0AHNTLN15L22U6FYFACMEYR4LMNL',
-            'client_secret' => '5eb4c1a644e7f5934f146962607d6bd1e5030ff524',
-            'refresh_token' => '1000.d41e7eb33ba73a8cd40484e069721a49.8da1d8429958b739d13210ae1ac97405'
+            'client_id'     => config('app.cliet_id'),
+            'client_secret' => config('app.cliet_secret'),
+            'refresh_token' => config('app.refresh_token')
         ];
         $apiResponse = Http::asForm()->post('https://accounts.zoho.com/oauth/v2/token', $requestParams);
         return $apiResponse;
