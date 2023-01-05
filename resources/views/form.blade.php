@@ -183,11 +183,11 @@
 
                     <div class="row mb-3 g-3">
                         <div class="col-md-6 col-sm-12">
-                            <label class="form-label" for="Tax_ID_Number">Tax ID Number</label>
-                            <input class="form-control" type="tel" id="Tax_ID_Number" name="Tax_ID_Number"
-                                maxlength="100" value="{{ old('Tax_ID_Number') }}">
-                            @if ($errors->has('Tax_ID_Number'))
-                                <span class="text-danger">{{ $errors->first('Tax_ID_Number') }}</span>
+                            <label class="form-label" for="Tax_ID">Tax ID Number</label>
+                            <input class="form-control" type="tel" id="Tax_ID" name="Tax_ID"
+                                maxlength="100" value="{{ old('Tax_ID') }}">
+                            @if ($errors->has('Tax_ID'))
+                                <span class="text-danger">{{ $errors->first('Tax_ID') }}</span>
                             @endif
                         </div>
 
@@ -305,11 +305,11 @@
 
                     <div class="row mb-3 g-3">
                         <div class="col-sm-6">
-                            <label class="form-label" for="County">County / Counties</label>
-                            <input class="form-control" id="County" maxlength="200" name="County"
-                                type="text" value="{{ old('County') }}">
-                            @if ($errors->has('County'))
-                                <span class="text-danger">{{ $errors->first('County') }}</span>
+                            <label class="form-label" for="Country">Country / Counties</label>
+                            <input class="form-control" id="Country" maxlength="200" name="Country"
+                                type="text" value="{{ old('Country') }}">
+                            @if ($errors->has('Country'))
+                                <span class="text-danger">{{ $errors->first('Country') }}</span>
                             @endif
                         </div>
                         <div class="col-sm-6">
@@ -326,29 +326,29 @@
                         <div class="col-sm-6">
                             <p class="mb-1 mt-2">Specialty <span class="text-muted">(select all that apply)</span></p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="ot" value="OT"
+                                <input class="form-check-input zcwf_ckbox" id="ot" value="O_T"
                                     maxlength="3" name="Specialty[]" type="checkbox"
-                                    {{ in_array('OT', old('Specialty', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="ot">OT</label>
+                                    {{ in_array('O_T', old('Specialty', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="O_T">OT</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="pt" value="PT"
+                                <input class="form-check-input zcwf_ckbox" id="P_T" value="P_T"
                                     maxlength="3" name="Specialty[]" type="checkbox"
-                                    {{ in_array('PT', old('Specialty', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="pt">PT</label>
+                                    {{ in_array('P_T', old('Specialty', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="P_T">PT</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="st" value="ST"
+                                <input class="form-check-input zcwf_ckbox" id="S_T" value="S_T"
                                     maxlength="3" name="Specialty[]" type="checkbox"
-                                    {{ in_array('ST', old('Specialty', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="st">ST</label>
+                                    {{ in_array('S_T', old('Specialty', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="S_T">ST</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input zcwf_ckbox" id="chiro" value="Chiro"
+                                <input class="form-check-input zcwf_ckbox" id="Chiropractor" value="Chiropractor"
                                     maxlength="3" name="Specialty[]" type="checkbox"
-                                    {{ in_array('Chiro', old('Specialty', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="chiro">Chiro</label>
+                                    {{ in_array('Chiropractor', old('Specialty', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="Chiropractor">Chiropractor</label>
                             </div>
                             <br>
                             @if ($errors->has('Specialty'))
@@ -397,19 +397,19 @@
                     </div>
                     <div class="row gx-4 pb-2 mt-4">
                         <div class="col-sm-12">
-                            <label class="form-label" for="Age_Group_Seen">Age Group Seen</label><br>
+                            <label class="form-label" for="Age_Groups_Seen">Age Group Seen</label><br>
                             <select class="selectpicker" multiple title="Choose one of the following..."
-                                data-live-search="true" name="Age_Group_Seen[]">
+                                data-live-search="true" name="Age_Groups_Seen[]">
                                 <option value="Pediatric"
-                                    {{ in_array('Pediatric', old('Age_Group_Seen', [])) ? 'selected' : '' }}>Pediatric
+                                    {{ in_array('Pediatric', old('Age_Groups_Seen', [])) ? 'selected' : '' }}>Pediatric
                                 </option>
                                 <option value="Adult"
-                                    {{ in_array('Adult', old('Age_Group_Seen', [])) ? 'selected' : '' }}>
+                                    {{ in_array('Adult', old('Age_Groups_Seen', [])) ? 'selected' : '' }}>
                                     Adult</option>
                             </select>
                         </div>
-                        @if ($errors->has('Age_Group_Seen'))
-                            <span class="text-danger">{{ $errors->first('Age_Group_Seen') }}</span>
+                        @if ($errors->has('Age_Groups_Seen'))
+                            <span class="text-danger">{{ $errors->first('Age_Groups_Seen') }}</span>
                         @endif
                     </div>
                     <div class="row gx-4 pb-2 mt-3">

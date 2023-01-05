@@ -41,66 +41,28 @@ class ZohoCRMController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(CustomerStoreRequest $request)
-    // {
-    //     $requestData = [
-    //         'Practice_Name'       => $request->Practice_Name,
-    //         'Tax_ID_Number'       => $request->Tax_ID_Number,
-    //         'NPI_Number'          => $request->NPI_Number,
-    //         'First_Name'          => $request->First_Name,
-    //         'Last_Name'           => $request->Last_Name,
-    //         'Job_Title'           => $request->Job_Title,
-    //         'Phone'               => $request->Phone,
-    //         'Mobile'              => $request->Mobile,
-    //         'Fax'                 => $request->Fax,
-    //         'Email'               => $request->Email,
-    //         'Street'      => $request->Street,
-    //         'City'                => $request->City,
-    //         'State'               => $request->State,
-    //         'Zip_Code'            => $request->Zip_Code,
-    //         'County'              => $request->County,
-    //         'Number_of_Locations' => $request->Number_of_Locations,
-    //         'Specialty'           => implode(',', $request->Specialty),
-    //         'Line_of_Business'    => implode(',', $request->Line_of_Business),
-    //         'Age_Group_Seen'          => implode(',', $request->Age_Group_Seen),
-    //         'Lead_Source'         => $request->Lead_Source,
-    //         'Website'             => $request->Website,
-    //     ];
-    //     $finalData = json_encode($requestData);
-    //     $apiResponse = Http::post("https://www.zohoapis.com/crm/v2/functions/testshakhawat/actions/execute?auth_type=apikey&zapikey=1003.8f0fa8b58bd902778565545cc30d25c1.07d6c0c21473bc52b82103a9d2862406&test={$finalData}");
-    //     $response = $apiResponse->json();
-    //     if (isset($response['details']['output'])) {
-    //         $output = json_decode($response['details']['output']);
-    //         if (isset($output->status) && $output->status === 'error') {
-    //             return redirect()->back()->with('failed', $output->message);
-    //         } else {
-    //             return redirect()->back()->with('success', 'Your data has been successfully submitted!');
-    //         }
-    //     }
-    //     return redirect()->back()->with('failed', 'Data submitting failed!');
-    // }
-
     public function store(CustomerStoreRequest $request)
     {
         $requestData = [
-            'Practice_Name'           => $request->Practice_Name,
-            'Tax_ID_Number'           => $request->Tax_ID_Number,
-            'NPI_Number'              => $request->NPI_Number,
-            'First_Name'              => $request->First_Name,
-            'Last_Name'               => $request->Last_Name,
-            'Job_Title'               => $request->Job_Title,
-            'Phone'                   => $request->Phone,
-            'Mobile'                  => $request->Mobile,
-            'Fax'                     => $request->Fax,
-            'Email'                   => $request->Email,
-            'Street'                  => $request->Street,
-            'City'                    => $request->City,
-            'State'                   => $request->State,
-            'Zip_Code'                => $request->Zip_Code,
-            'County'                  => $request->County,
-            'Number_of_Locations'     => $request->Number_of_Locations,
-            'Lead_Source'             => $request->Lead_Source,
-            'Website'                 => $request->Website,
+            'Practice_Name'                    => $request->Practice_Name,
+            'Tax_ID_Number'                    => $request->Tax_ID_Number,
+            'NPI_Number'                       => $request->NPI_Number,
+            'First_Name'                       => $request->First_Name,
+            'Last_Name'                        => $request->Last_Name,
+            'Job_Title'                        => $request->Job_Title,
+            'Phone'                            => $request->Phone,
+            'Mobile'                           => $request->Mobile,
+            'Fax'                              => $request->Fax,
+            'Email'                            => $request->Email,
+            'Street'                           => $request->Street,
+            'City'                             => $request->City,
+            'State'                            => $request->State,
+            'Zip_Code'                         => $request->Zip_Code,
+            'Country'                          => $request->Country,
+            'Number_of_Locations'              => $request->Number_of_Locations,
+            'Lead_Source'                      => $request->Lead_Source,
+            'Website'                          => $request->Website,
+            'Age_Groups_Seen'                  => $request->Age_Groups_Seen,
         ];
 
         if (count($request->Specialty)) {
@@ -113,12 +75,6 @@ class ZohoCRMController extends Controller
                 $requestData[$item] = true;
             }
         }
-        if (count($request->Age_Group_Seen)) {
-            foreach ($request->Age_Group_Seen as $item) {
-                $requestData[$item] = true;
-            }
-        }
-   
 
         $tokenDetails = $this->GenerateToken();
         if (!isset($tokenDetails['access_token'])) {
@@ -132,7 +88,7 @@ class ZohoCRMController extends Controller
             (object) $data
         );
         $response = $apiResponse->json();
-        dd($response);
+
         if (!empty($response['data'])
         && !empty($response['data'][0]['code'])
         && $response['data'][0]['code'] === 'SUCCESS') {
