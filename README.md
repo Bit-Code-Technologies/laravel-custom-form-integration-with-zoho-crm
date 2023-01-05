@@ -1,15 +1,16 @@
-=== Integrations of Laravel custom form with Zoho CRM===
+=== **Integrations of Laravel custom form with Zoho CRM===
+
 Contributors: Shakhawat Hosen
 Tags: Laravel, custom form, Zoho CRM , Integration, Automation, Zoho , CRM, Form.
 
 A integration between Laravel custom form with Zoho CRM.
 
-== Description ==
+== **Description ==
 
 By this application we are storing Laravel custom form data into the Zoho CRM Leads module.
 
 
-Prerequisites :
+**Prerequisites** :
 
 ✔ A Zoho CRM account.
 
@@ -21,7 +22,7 @@ Prerequisites :
 
 ✔ cp .env.example .env
 
-Fillup the below's credentials into the env file:
+**Fillup the below's credentials into the env file:
 ```
 CLIENT_ID=
 CLIENT_SECRET=
